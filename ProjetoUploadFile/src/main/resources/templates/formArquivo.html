@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>Form Arquivo</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+</head>
+<body>
+	<h2 style="text-align: Center;">Salvando arquivos no BD e
+		apresentando em tela</h2>
+	<h3 style="text-align: center;">com JAVA</h3>
+	<div class="card col-4">
+		<h4 style="padding: 7px; text-align:Center;"><u>Adicionando novo</u></h4>
+		<br>
+		<form method="post" enctype="multipart/form-data">
+				<label for='descricao'>Descrição:</label> <input type="text"
+					id="descricao" name="descricao"> <br>
+				<br> <label for="arquivo">Imagem :</label> <input id="arquivo"
+					type="file" name="uploadImagem" /> <br> <br>
+				<button type="submit" class="btn btn-success">Adicionar</button>
+		</form>
+	</div>
+	<br><br>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Descrição</th>
+				<th scope="col">Imagem</th>
+				<th scope="col">Download</th>
+			</tr>
+		</thead>
+		<tbody >
+			<tr scope="row" th:each="produto ,iterador : ${produtos}">
+				<th th:text="${iterador.index}">1</th>
+				<td th:text="${produto.id}"></td>
+				<td th:text="${produto.descricao}">descrição</td>
+				<td>
+					<img alt="arquivo incopativel" height="100px" width="150px" th:src="|/imagem/${produto.id}|">
+					<a class='btn btn-warning' th:href="|/download/${produto.id}|">Baixar imagem</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
