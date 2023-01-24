@@ -17,7 +17,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import breno.dev.ProjetoUploadFile.model.Produto;
 import breno.dev.ProjetoUploadFile.repository.ProdutoRepository;
-
+/*
+ * requisitos para funcionar...
+ * - utilizar banco mysql
+ * - criar o banco com nome "UploadFile"
+ * 
+ * */
 @Controller
 public class ArquivoController {
 	@Autowired
